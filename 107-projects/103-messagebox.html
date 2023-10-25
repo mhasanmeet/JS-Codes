@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MessageBox</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(140deg, #327282, #902927 50.98%, #292726 36.99%);
+            color: #163436;
+            font-family: Arial;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(950deg, #2e1685, #d4807f 43.98%, #e48556a2 87.99%);
+            border-radius: 7px;
+            flex: 0 0 80%;
+        }
+
+        button{
+            display: block;
+            font-size: 1.5rem;
+            margin: 1rem auto;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
+            color: rgb(167, 204, 82);
+            box-shadow: 0px 4px 10px 5px rgba(59,32,175,0.7);
+            -webkit-box-shadow: 0px 4px 10px 5p rgba(59,32,175,0.7);
+            -moz-box-shadow: 0px 4px 10px 5p rgba(59,32,175,0.7);
+            outline: none;
+            transition: .3s;
+        }
+
+        button:hover{
+            opacity: 0.8;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px 5px rgba(32, 175, 87, 0.7);
+            -webkit-box-shadow: 0px 4px 10px 5p rgba(32, 175, 87, 0.7);
+            -moz-box-shadow: 0px 4px 10px 5p rgba(32, 175, 87, 0.7);
+            transition: .3s;
+        }
+
+        input[type="text"]{
+            padding: 0.5rem;
+            margin: 1rem;
+            border-radius: 10px;
+            outline: none;
+            border: 0;
+        }
+
+        input[type="text"]:focus{
+            box-shadow: 0px 4px 10px rgb(110, 228, 116);
+        }
+
+        #messageOut{
+            margin: 0.5rem 0;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class=""">Messages You Like to Send</h2>
+        <input type="text" name="messageIn" id="messageIn" placeholder="">
+        <button type="button" id="sendBtn">Press to Send</button>
+        <h1 id="">Last Message Delivered</h1>
+        <h1 id="messageOut"></h1>
+    </div>
+
+    <script>
+        const sendBtn = document.querySelector('#sendBtn');
+        const messageIn = document.querySelector('#messageIn');
+        const messageOut = document.querySelector('#messageOut');
+
+        sendBtn.addEventListener('click', sendMsg)
+
+        function sendMsg(){
+            let content = messageIn.value;
+            messageOut.innerHTML = content;
+
+            if(content === ''){
+                alert(`Don't keep value empty`)
+            }
+            else{
+                messageOut.innerHTML = content;
+                messageIn.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
