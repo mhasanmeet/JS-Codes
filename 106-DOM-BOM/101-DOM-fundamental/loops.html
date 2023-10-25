@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM loops</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        div{
+            border: 1px solid gray;
+            border-radius: 1rem;
+            padding: .5rem;
+            background-color: white;
+            width: 30rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Loops</h1>
+
+    <!-- DOM loops -->
+    <div>
+        <p class="elm"></p>
+        <p class="elm2"></p>
+        <p class="elm3"></p>
+    </div>
+
+
+
+    <script>
+
+        // DOM loops
+        const elm = document.querySelector(".elm")
+        const elm2 = document.querySelector(".elm2")
+        const elm3 = document.querySelector(".elm3")
+
+        const arr = [elm, elm2, elm3]
+
+
+        // for loops
+        for(let i = 0; i < arr.length; i++){
+            arr[i].innerHTML = "Hello World"
+        }
+
+
+        //for of
+        for (let element of arr){
+            element.style.color = "red";
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM - Window</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        div{
+            border: 1px solid gray;
+            border-radius: 1rem;
+            padding: .5rem;
+            background-color: white;
+            width: 30rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!--1. Browser Height and Width -->
+    <div>
+        <h1>Window Height: <span class="height"></span></h1>
+        <h1>Window Width: <span class="width"></span></h1>
+    </div>
+    
+    <script>
+        const h = window.innerHeight
+        const w = window.innerWidth
+
+        console.log(h, w)
+
+        const heightEl = document.querySelector(".height")
+        heightEl.innerText = h
+
+        const widthEl = document.querySelector(".width")
+        widthEl.innerText = w
+    </script>
+
+
+
+    <!-- Close the window -->
+    <div>
+        <p class="close"></p>
+    </div>
+
+    <script>
+        const closeWin = document.querySelector(".close")
+        // closeWin.close()
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Capture API</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            font-size: 2rem;
+        }
+
+        button{
+            font-family: inherit;
+            font-size: inherit;
+        }
+    </style>
+</head>
+<body>
+    
+    <video id="preview" autoplay>
+        Your Browser doesn't support HTML5
+    </video>
+    <button id="start" class="btn">Start</button>
+
+
+
+
+    <script>
+        const previewElm = document.querySelector("#preview")
+        const startBtn = document.querySelector("#start")
+
+        async function startRecording(){
+            previewElm.srcObject = await navigator.mediaDevices.getDisplayMedia({
+                video: true,
+                audio: true
+            })
+        }
+
+        startBtn.addEventListener("click", startRecording)
+    </script>
+</body>
+</html>

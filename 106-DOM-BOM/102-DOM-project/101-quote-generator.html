@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quote Generator</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background: lightcyan;
+        }
+
+        .container{
+            width: 40%;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header{
+            font-size: 1.5rem;
+            padding: 1rem;
+            color: rgb(87, 87, 87);
+        }
+
+        .main-content{
+            background-color: rgb(228, 228, 228);
+            color: rgb(87, 87, 87);
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+
+        .quote::before{
+            content: "❝";
+            font-size: 1.5rem;
+        }
+
+        .quote::after{
+            content: "❞";
+            font-size: 1.5rem;
+        }
+
+        .person{
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(0, 128, 0, 0.936);
+            margin-top: 1rem;
+        }
+
+        button{
+            font-family: inherit;
+            margin-top: 2rem;
+            padding: .4rem 2rem;
+            cursor: pointer;
+            border-radius: .2rem;
+            border: 1px solid grey;
+        }
+
+        button:hover{
+            background: lightgreen;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>JavaScript Quote Generator</h2>
+        </div>
+
+        <div class="main-content">
+            <div class="text-area">
+                <span class="quote">
+                    Be kind, for whenever kindness becomes part of something, it beautifies it. Whenever it is taken from something, it leaves it tarnished
+                </span>
+            </div>
+
+            <div class="person"> Prophet Muhammad (peace be upon him)</div>
+
+            <div class="button-area">
+                <button id="new-quote">New Quote ➝</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let btn = document.querySelector('#new-quote')
+        let quote = document.querySelector('.quote')
+        let person = document.querySelector('.person')
+
+        const quotes = [{
+                quote: ` You should write because you love the shape of stories and sentences and the creation of different words on a page. Writing comes from reading, and reading is the finest teacher of how to write.`,
+                person: `Annie Proulx`
+            },
+            {
+                quote: ` The strongest among you is the one who controls his anger.`,
+                person: `Prophet Muhammad (peace be upon him)`
+            },
+            {
+                quote: ` Even if we don't have the power to choose where we come from, we can still choose where we go from there.`,
+                person: `Stephen Chbosky`
+            },
+            {
+                quote: ` A father gives nothing better than good education.`,
+                person: `Prophet Muhammad (peace be upon him)`
+            },
+            {
+                quote: ` Life is never fair, and perhaps it is a good thing for most of us that it is not.`,
+                person: `Oscar Wilde`
+            },
+            {
+                quote: ` Do not waste water even if you were at a running stream.`,
+                person: `Prophet Muhammad (peace be upon him)`
+            },
+            {
+                quote: ` Don't cry because it's over. Smile because it happened.`,
+                person: `Dr. Seuss`
+            },
+            {
+                quote: ` However much the faith of a man increases, his regard for women increases.`,
+                person: `Prophet Muhammad (peace be upon him)`
+            },
+            {
+                quote: ` Everything is hard before it is easy.`,
+                person: `Johann Wolfgang von Goethe`
+            },
+            {
+                quote: ` Speak good or remain silent.`,
+                person: `Prophet Muhammad (peace be upon him)`
+            }
+        ]
+
+        btn.addEventListener('click', ()=>{
+            let random = Math.floor(Math.random() * quotes.length) 
+            quote.innerText = quotes[random].quote
+            person.innerText = quotes[random].person
+        })
+    </script>
+</body>
+</html>

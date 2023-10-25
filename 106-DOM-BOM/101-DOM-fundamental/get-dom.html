@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        section{
+            border: 1px solid gray;
+            border-radius: 1rem;
+            padding: .5rem;
+            background-color: white;
+            width: 30rem;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="container">
+        <h1 class="header">Document Header</h1>
+
+        <h3 class="side-bar">Document Sidebar</h3>
+
+        <div class="list-item">
+            <li class="list1">list1</li>
+            <li class="list2">list2</li>
+            <li class="list3">list3</li>
+        </div>
+    </section>
+
+
+    <script>
+        //Parent Node Traversal
+        let container = document.querySelector('.container')
+
+
+
+        //get all html docs
+        console.log(container.parentNode.parentNode)
+        console.log(container.parentNode.parentElement)
+
+
+
+        
+        //
+        let html = document.documentElement
+        console.log(html.parentNode)
+        console.log(html.parentElement)
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            margin: 0 50px;
+        }
+
+        .container{
+            display: flex;
+            background-color: azure;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        button{
+            width: fit-content;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #posts{
+            display: flex;
+            gap: .5rem;
+            flex-direction: column;
+        }
+
+        .post-container{
+            display: flex;
+            align-items: center;
+            gap: rem;
+            background-color: rgb(252, 243, 231);
+            padding: .5rem;
+        }
+
+        .post-container p{
+            width: 40rem;
+        }
+
+        .options button{
+            background: none;
+            border: none;
+            font-size: 2rem;
+        }
+
+        #msg{
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Social Media</h1>
+    <div class="container">
+        <div class="left">
+            <form id="form">
+                <label for="">Write your post</label>
+                <textarea name="" id="input" cols="30" rows="10"></textarea>
+                <div id="msg">Post can not be blank</div>
+                <button type="submit" id="btn">Post</button>
+            </form>
+        </div>
+
+        <div class="right">
+            <h3>Your posts here</h3>
+            <div id="posts"></div>
+        </div>
+    </div>
+<script>
+    const form = document.getElementById("form");
+    const inputData = document.getElementById("input");
+    const errMsg = document.getElementById("msg");
+    const posts = document.getElementById("posts");
+
+    // When form submitted, it will prevent default behavior and get formValidation function
+    form.addEventListener("submit", (e) =>{
+        e.preventDefault();
+        formValidation();
+    });
+
+    // form validation with content
+    const formValidation = () =>{
+        if(inputData.value.trim() === ""){
+            errMsg.style.display = "block"
+        }
+        else{
+            errMsg.style.display = "none"
+            acceptValue()
+        }
+    };
+
+    // get the data by object
+    const data = {};
+
+    // in this function push the data into object, what we get from form input
+    const acceptValue = () =>{
+        data.text = inputData.value.trim();
+        // window.localStorage.setItem("posts", JSON.stringify(data));
+        createPosts();
+    }
+
+    // create posts and insert into HTML
+    const createPosts = () =>{
+        // template of the posts
+        posts.innerHTML += 
+        `
+        <div class="post-container" pt>
+            <p>${data.text}</p>
+            <span class="options">
+                <button onClick="editPost(this)" title="Edit this post">📄</button>
+                <button onClick="deletePost(this)" title="Delete this post">🗑️</button>
+            </span>
+        </div>
+        `;
+
+        // after creating post, the input value must remove
+        inputData.value = "";
+    }
+
+    // Delete post
+    const deletePost = (e) =>{
+        e.closest('[pt]').remove();
+
+    }
+
+    // edit and update posts 
+    const editPost = (e) =>{
+        // insert input form of the text value
+        inputData.value = e.parentElement.previousElementSibling.innerHTML;
+        // remove the section
+        e.closest('[pt]').remove();
+    }
+</script>
+</body>
+</html>

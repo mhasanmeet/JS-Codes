@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM add elements</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        div{
+            border: 1px solid gray;
+            border-radius: 1rem;
+            padding: .5rem;
+            background-color: white;
+            width: 30rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM add elements</h1>
+
+    <!--1. get class element and then add a new class and then change elements design based on new class -->
+    <div>
+        <h2 class="attributeClass">Added Id</h2>
+    </div>
+
+    <script>
+        const attributeClass = document.querySelector(".attributeClass")
+        attributeClass.classList.add("new-class")
+
+        const newClass = document.querySelector(".new-class")
+        newClass.style.color = "red"
+    </script>
+
+
+
+
+    <!--2. Add class to an element -->
+    <div>
+        <h4>We add here a new class</h4>
+    </div>
+
+    <script>
+        const addClass = document.querySelector("h4")
+        addClass.className += "newClass"
+        addClass.style.color = "blue";
+    </script>
+
+
+
+    <!--3. Replace all class name at once -->
+    <div>
+        <span class="class1 class2 class3">Replace all classes</span>
+    </div>
+
+    <script>
+        const replaceClasses = document.querySelector("span")
+        replaceClasses.className = "replaced"
+    </script>
+
+</body>
+</html>

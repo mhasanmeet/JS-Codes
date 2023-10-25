@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Get Elements</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        div{
+            border: 1px solid gray;
+            border-radius: 1rem;
+            padding: .5rem;
+            background-color: white;
+            width: 30rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM get elements</h1>
+
+
+    <!--1. DOM difference between innerText, innerContent, innerHTML-->
+    <div>
+        <h4 id="innerDOM">
+            <span>Lorem</span>
+            ipsum dolor sit amet.
+        </h4>
+    </div>
+
+    <script>
+        let innerDOM = document.getElementById('innerDOM')
+        console.log(innerDOM.innerText)
+        console.log(innerDOM.textContent)
+        console.log(innerDOM.innerHTML)
+    </script>
+
+
+
+
+    <!--2. get id and console.log id -->
+    <div>
+        <h4 id="attribute-Id">Computer Science</h4>
+    </div>
+
+    <script>
+        let attributeId = document.querySelector('#attribute-Id')
+        console.log(attributeId.getAttribute('id'));
+    </script>
+
+
+
+
+
+    <!--3. get element by id, id should be unique -->
+    <div>
+        <h2 id="id">DOM ID</h2>
+    </div>
+
+    <script>
+        document.getElementById("id").style.color = "red"
+    </script>
+
+
+
+
+
+    <!--4. get all elements with class, class may have multiple -->
+    <div>
+        <h2 class="class">DOM Class 1</h2>
+        <h2 class="class">DOM Class 2</h2>
+    </div>
+
+    <script>
+        let el = document.getElementsByClassName("class")
+        for(let i = 0; i< el.length; i++){
+            el[i].style.color = "orange";
+        }
+    </script>
+
+
+
+
+
+    <!--5. get all class element of the element -->
+    <div>
+        <h6 class="class1 class2 class3">I have multiple classes</h6>
+    </div>
+
+    <script>
+        const classes = document.querySelector("h6")
+        console.log(classes.className)
+    </script>
+
+
+
+
+
+    <!--6. query selectors based on id or class -->
+    <div>
+        <h2 class="class-query"></h2>
+        <h2 id="id-query"></h2>
+    </div>  
+    
+    <script>
+        let classQuerySelector = document.querySelector('.class-query')
+        classQuerySelector.innerHTML = "I'm a Class Query Selector"
+        
+        let idQuerySelector = document.querySelector('#id-query')
+        idQuerySelector.innerHTML = "I'm a Id Query Selector"
+    </script>
+
+
+
+
+
+    <!--7. get all elements by query selector -->
+    <div>
+        <button>Hello</button>
+        <button>World</button>
+    </div>
+
+    <script>
+        //get first elements by query selector
+        const firstEl = document.querySelector("button")
+        firstEl.style.border = "3px solid maroon"
+
+
+        //get all elements by query selector
+        const queryEl = document.querySelectorAll("button")
+        for(let i = 0; i < queryEl.length; i++){
+            queryEl[i].style.color = "red";
+            queryEl[i].style.fontSize = "1.5rem";
+        }
+    </script>
+
+
+
+
+    <!--8. get all elements with class "query-all" -->
+    <div>
+        <li class="query-all">List 1</li>
+        <li class="query-all">List 2</li>
+    </div>
+
+    <script>
+        let querySelectorAll = document.querySelectorAll('.query-all')
+        for(let i = 0; i < querySelectorAll.length; i++){
+            querySelectorAll[i].style.fontSize = '1.5rem'
+        }
+    </script>
+
+
+
+
+
+    <!--9. get element by tag name -->
+    <div>
+        <h3>DOM Tag Element</h3>
+    </div>
+
+    <script>
+        let domTag = document.getElementsByTagName('h3')
+        for(let i = 0; i < domTag.length; i++){
+            domTag[i].innerHTML = 'DOM Tag Inner text Manipulated'
+        }
+    </script>
+
+
+
+
+
+    <!--10. get element by attribute -->
+    <div>
+        <h1 attribute></h1>
+        <h1 attribute></h1>
+    </div>
+
+    <script>
+        // get first attribute
+        const firstAttribute = document.querySelector("[attribute]")
+        firstAttribute.style.color = "green";
+
+
+        // get all element by attribute
+        const attribute = document.querySelectorAll("[attribute]")
+        for(let i = 0; i<attribute.length; i++){
+            attribute[i].innerHTML = "Hello"
+        }
+
+    </script>
+
+
+
+    <!--11. check if elements exits -->
+    <div>
+        <p class="text-el" lorem>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt corrupti, tempora animi veritatis, quasi natus vero exercitationem, libero consectetur deleniti nostrum vel sit aperiam iure iusto molestias velit ea error.</p>
+    </div>
+    
+    <script>
+        //matches elements
+        const lorem = document.querySelector(".text-el")
+        if(lorem.matches("[lorem]")){
+            lorem.style.color = "green";
+        }
+        else{
+            console.log("found such no elements")
+        }
+    </script>
+</body>
+</html>

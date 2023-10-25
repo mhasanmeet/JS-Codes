@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Update remove toggle elements</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        div{
+            border: 1px solid gray;
+            border-radius: 1rem;
+            padding: .5rem;
+            background-color: white;
+            width: 30rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM Update remove toggle elements</h1>
+
+
+    <!--1. DOM remove element -->
+    <div>
+        <h2>Hello There</h2>
+    </div>
+
+    <Script>
+        const rmEl = document.querySelector("h2")
+        rmEl.remove()
+    </Script>
+
+
+
+
+    <!--2. remove class -->
+    <div>
+        <h2 class="remove-class">Remove class</h2>
+    </div>
+
+    <script>
+        const rmClass = document.querySelector(".remove-class")
+        rmClass.classList.remove(".remove-class")
+    </script>
+
+
+
+
+    <!--3. toggle elements -->
+    <div>
+        <h3 class="toggleEl">Lorem ipsum dolor sit amet.</h3>
+    </div>
+
+    <script>
+        const toggleEl = document.querySelector("h3")
+        toggleEl.classList.toggle("toggleEl")
+    </script>
+
+
+
+    <!--4. DOM update Id -->
+    <div>
+        <h4 id="willUpdate">The Id will be update</h4>
+    </div>
+
+    <script>
+        const idUpdate = document.querySelector("#willUpdate")
+        idUpdate.setAttribute("id", "newId")
+
+        const newId = document.querySelector("#newId")
+        newId.style.color = "orange";
+    </script>
+
+
+
+    <!-- 5. And the same way we can update class also -->
+    <div>
+        <h4 class="willUpdate">The Id will be update</h4>
+    </div>
+
+    <script>
+        const classUpdate = document.querySelector(".willUpdate")
+        classUpdate.setAttribute("class", "newClass")
+
+        const newClass = document.querySelector(".newClass")
+        newClass.style.color = "blue";
+    </script>
+
+
+
+
+    <!--6. Update the input element value -->
+    <div>
+        <input id="value" value="The input value will be update"/>
+    </div>
+
+    <script>
+        const value = document.querySelector("#value")
+        value.setAttribute("value", "Update Value")
+    </script>
+</body>
+</html>
